@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
-import Navbar from "../components/Navbar.astro"
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -22,30 +23,6 @@ import Navbar from "../components/Navbar.astro"
     </div>
     </section>
 
-    <footer class="mt-20 py-10 bg-black border-t border-gray-700 text-gray-400 text-center">
-        <p class="text-purple-500 text-lg font-semibold">PortOS</p>
-        <div class="grid grid-cols-3 gap-10 max-w-4xl mx-auto mt-5">
-            <div>
-                <h3 class="font-semibold text-white">Tools</h3>
-                <p>Code Server</p>
-            </div>
-            <div>
-                <h3 class="font-semibold text-white">OS</h3>
-                <p>Ubuntu</p>
-            </div>
-            <div>
-                <h3 class="font-semibold text-white">Browse</h3>
-                <p>Chrome</p>
-            </div>
-            <div>
-                <h3 class="font-semibold text-white">Company</h3>
-                <p>Contact</p>
-            </div>
-            <div>
-                <h3 class="font-semibold text-white">Socials</h3>
-                <p>LinkedIn</p>
-            </div>
-        </div>
-    </footer>
+    <Footer/>
 </body>
 </html>
