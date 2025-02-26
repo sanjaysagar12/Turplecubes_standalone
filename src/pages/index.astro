@@ -1,11 +1,37 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro"
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white">
 
-<Layout>
-	<Welcome />
-</Layout>
+    
+	<Navbar currentPath="/" />
+    <!-- Hero Section -->
+    <section class="text-center mt-20">
+        <h1 class="text-9xl font-bold">
+            <span class="text-white">Turple</span><span class="text-purple-500">Cubes</span>
+            <span class="border-r-4 border-white pr-4"></span>
+        
+        <div class="mt-4 text-3xl">
+            <p class="line-through text-white">viruses and cookies Setup</p>
+            <p class="line-through text-white">Complexity</p>
+            <p class="text-white">Safe <span class="text-purple-500">Workspace</span></p>
+        </div>
+    </h1>
+        <p class="mt-6 text-gray-400 text-3xl max-w-3xl mx-auto">
+            Revolutionizing Development with Seamless Browser Workspace. Code, Host, and Browse Securely - All in One Platform.
+        </p>
+
+        <button class="mt-6 bg-purple-600 px-6 py-2 text-lg rounded-md hover:bg-purple-700">Get Started</button>
+    </section>
+
+</body>
+</html>
