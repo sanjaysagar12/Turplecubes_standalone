@@ -3,18 +3,55 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortOS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>About Us | TurpleCubes</title>
 </head>
 <body class="bg-black text-white">
+    <Navbar currentPath="/about" />
+    <section class="text-center mt-20 p-8">
+        <h1 class="text-4xl font-bold">Hey <span class="text-purple-500">Friend!</span> This is About us</h1>
+        <p class="mt-4 max-w-2xl mx-auto text-gray-300">
+            Welcome To TurpleCubes, where our dream and vision merge to become your partner in innovation.
+            Our mission is to furnish a versatile workspace catering to every need imaginable.
+            From coding to collaboratTurpleCubes is your conduit for unleashing creativity and streamlining productivity.
+            Now, what's stopping you from making it?
+        </p>
+    </section>
+    <section class="px-8 py-6" >
+   <div  class="bg-purple-600 text-black py-16 px-8">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-3">
+            <h2 class="text-7xl text-center items-center justify-center font-bold border-r-2 border-black ">Our Story</h2>
+            <p class="text-xl">
+                WelcomTurpleCubes, where our dream and vision merge to become your partner in innovation.
+                Our mission is to furnish a versatile workspace catering to every need imaginable.
+                From coding to collaboratTurpleCubes is your conduit for unleashing creativity and streamlining productivity.
+            </p>
+        </div>
+        </div>
+    </section>
 
-    
-	<Navbar currentPath="/about" />
-    <Footer/>
+    <section class="bg-black text-white py-16 text-center">
+        <h2 class="text-3xl font-semibold">Meet our <span class="text-purple-500">Team</span></h2>
+        <div class="grid md:grid-cols-3 gap-8 px-8 mt-8">
+            <div class="text-center">
+                <img src="https://cdn.vectorstock.com/i/preview-1x/45/20/male-avatar-profile-picture-design-vector-38394520.jpg" alt="Sanjay Sagar" class="rounded-lg shadow-lg w-full h-72 object-cover">
+                <p class="mt-4 font-semibold text-lg">Sanjay Sagar</p>
+            </div>
+            <div class="text-center">
+                <img src="https://cdn.vectorstock.com/i/preview-1x/45/20/male-avatar-profile-picture-design-vector-38394520.jpg" alt="Dharshan Kumar" class="rounded-lg shadow-lg w-full h-72 object-cover">
+                <p class="mt-4 font-semibold text-lg">Dharshan Kumar</p>
+            </div>
+            <div class="text-center">
+                <img src="https://cdn.vectorstock.com/i/preview-1x/45/20/male-avatar-profile-picture-design-vector-38394520.jpg" alt="Rohith" class="rounded-lg shadow-lg w-full h-72 object-cover">
+                <p class="mt-4 font-semibold text-lg">Rohith</p>
+            </div>
+        </div>
+    </section>
+    <Footer />
 </body>
 </html>
