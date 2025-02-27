@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
+import FAQ from "../components/FAQ.astro"
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -136,39 +137,9 @@ import Layout from "../layouts/Layout.astro";
                 class="w-1/2 rounded-lg shadow-lg"
             />
         </section>
-        <section class="text-center py-12">
-            <h1 class="text-3xl font-bold">Frequently Asked Questions</h1>
-        </section>
+     
 
-        <div class="flex justify-center items-start gap-12 px-12">
-            <!-- FAQ List -->
-            <div class="w-1/2">
-                <div class="space-y-4">
-                    <button
-                        class="w-full text-left px-4 py-3 bg-gray-800 rounded-md font-semibold"
-                        >How does PortOS work?</button
-                    >
-                    <button
-                        class="w-full text-left px-4 py-3 border border-white bg-black rounded-md font-semibold"
-                        >How does live hosting work on PortOS?</button
-                    >
-                    <button
-                        class="w-full text-left px-4 py-3 bg-gray-800 rounded-md font-semibold"
-                        >Do I need any hardware or software?</button
-                    >
-                    <button
-                        class="w-full text-left px-4 py-3 bg-gray-800 rounded-md font-semibold"
-                        >Can I collaborate with others on PortOS?</button
-                    >
-                    <button
-                        class="w-full text-left px-4 py-3 bg-gray-800 rounded-md font-semibold"
-                        >How does billing work for PortOS services?</button
-                    >
-                </div>
-            </div>
-
-           
-        </div>
+        <FAQ/>
     </main>
     <Footer />
 </Layout>
