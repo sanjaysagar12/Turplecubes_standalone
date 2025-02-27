@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -17,16 +16,16 @@ import Layout from "../layouts/Layout.astro";
     <!-- Query Form AND Info Cards placed in the same container -->
     <div class="container max-w-4xl mx-auto px-4 mt-12">
         <!-- Query Form -->
-        <div class="w-full mb-12">
+        <div class="w-full relative mb-12">
             <textarea 
                 placeholder="Let us know your feedbacks, queries..." 
                 class="w-full p-4 bg-gray-900 border border-gray-700 rounded-lg text-gray-200 min-h-64"
             ></textarea>
-            <div class="flex justify-end mt-4">
-                <button class="px-6 py-2 bg-blue-600 hover:bg-blue-700 transition-colors rounded text-white font-semibold">
-                    Send
-                </button>
-            </div>
+            <button 
+        class="absolute bottom-5 right-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+      >
+        Send
+      </button>
         </div>
         
         <!-- Info Cards -->
@@ -51,5 +50,4 @@ import Layout from "../layouts/Layout.astro";
         </div>
     </div>
     
-    <Footer />
 </Layout>

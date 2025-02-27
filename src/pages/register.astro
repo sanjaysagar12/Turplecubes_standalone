@@ -2,13 +2,12 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Join the Waitlist | TurpleCubes">
   <Navbar currentPath="/register" />
   
-  <div class="min-h-screen bg-gray-900 pt-20">
+  <div class="min-h-screen pt-20">
     <div class="container mx-auto px-4 py-16 flex flex-col items-center">
       <!-- Main Content -->
       <div class="max-w-3xl w-full text-center mb-10">
@@ -109,8 +108,7 @@ import Footer from "../components/Footer.astro";
       </div>
     </div>
   </div>
-  
-  <Footer />
+
 </Layout>
 
 <script>
