@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-// NavBar.astro
+
 interface Props {
   currentPath: string;
 }
@@ -13,30 +13,30 @@ const navItems = [
   { name: "Blog", path: "/blog" },
   { name: "Help", path: "/help" },
   { name: "About Us", path: "/about" },
-  
 ];
-
-
 ---
 
-<nav class="fixed top-0 w-full bg-black shadow-md z-50">
-  <div class="max-w-7xl px-4 sm:px-6 mt-6 lg:px-8">
+<nav class="fixed top-0 w-full bg-gray-900 shadow-lg z-50 border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-      <!-- Logo -->
-      <div class="flex-shrink-0">
-        <a href="/"><img src="logo.svg" alt="" /></a> TurpleCubes
+      <!-- Logo & Brand Name -->
+      <div class="flex items-center space-x-2">
+        <a href="/">
+          <img src="logo.svg" alt="Logo" class="h-8 w-auto" />
+        </a>
+        <span class="text-white font-semibold text-lg">TurpleCubes</span>
       </div>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex justify-between items-center space-x-8">
+      <!-- Centered Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
         {
-          navItems.map((item) => (
+          navItems.slice(0, 4).map((item) => (
             <a
               href={item.path}
-              class={`text-sm  transition-colors duration-200 ${
+              class={`text-sm transition-colors duration-200 ${
                 currentPath === item.path
-                  ? "text-purple-600 text-base font-bold"
-                  : "text-white-700 text-base font-medium hover:text-purple-600"
+                  ? "text-purple-400 font-bold"
+                  : "text-gray-300 hover:text-purple-400"
               }`}
             >
               {item.name}
@@ -45,81 +45,119 @@ const navItems = [
         }
       </div>
 
-    <div class="flex justify-between items-center  ">
-      <div class="space-x-1">
-        <button class="border px-4 py-2 rounded-md hover:bg-gray-800">Sign In</button>
-        <button class="border px-4 py-2 rounded-md hover:bg-gray-800">Sign Up</button>
+      <!-- Register Button (Desktop) -->
+      <div class="hidden md:flex items-center">
+        <a
+          href="/register"
+          class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors transform hover:scale-105"
+        >
+          Register
+        </a>
       </div>
-    
-</div>
-      <!-- Mobile menu button -->
-      <div class="md:hidden bg-black">
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
         <button
           id="mobile-menu-button"
-          class="text-gray-500 hover:text-purple-600  focus:outline-none"
+          class="text-gray-300 hover:text-purple-400 focus:outline-none transition-transform duration-300"
         >
           <span class="sr-only">Open main menu</span>
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+          <div id="hamburger" class="w-6 h-5 flex flex-col justify-between">
+            <span class="w-full h-0.5 bg-gray-300 transition-all duration-300 rounded-lg"></span>
+            <span class="w-full h-0.5 bg-gray-300 transition-all duration-300 rounded-lg"></span>
+            <span class="w-full h-0.5 bg-gray-300 transition-all duration-300 rounded-lg"></span>
+          </div>
         </button>
       </div>
     </div>
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden text-white bg-black border-t">
+  <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
     <div class="px-2 pt-2 pb-3 space-y-1">
       {
         navItems.map((item) => (
           <a
             href={item.path}
-            class={`block px-3 py-2 rounded-md text-base  ${
+            class={`block px-3 py-2 rounded-md text-base ${
               currentPath === item.path
-                ? "text-purple-600 bg-purple-50 font-bold"
-                : "text-white-700 hover:text-purple-600 hover:bg-purple-50 font-medium"
-            }`}
+                ? "text-purple-400 bg-gray-700 font-medium"
+                : "text-gray-300 hover:text-purple-400 hover:bg-gray-700"
+            } transition-transform duration-300 transform hover:translate-x-2`}
           >
             {item.name}
           </a>
         ))
       }
+      <!-- Mobile Register Button -->
+      <div class="flex flex-col mt-4 pt-4 border-t border-gray-700">
+        <a
+          href="/register"
+          class="block px-3 py-2 rounded-md text-base text-white bg-purple-600 hover:bg-purple-700 transition-all duration-300 transform hover:translate-y-0.5"
+        >
+          Register
+        </a>
+      </div>
     </div>
-
   </div>
 </nav>
 
-<script>
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
+<style>
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .menu-open {
+    animation: fadeInDown 0.3s ease-out forwards;
+    max-height: 500px !important;
+    opacity: 1 !important;
+  }
+  
+  .hamburger-open span:first-child {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #a78bfa;
+  }
+  
+  .hamburger-open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-open span:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: #a78bfa;
+  }
+</style>
 
-  mobileMenuButton?.addEventListener("click", () => {
-    mobileMenu?.classList.toggle("hidden");
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const hamburger = document.getElementById("hamburger");
+
+    mobileMenuButton?.addEventListener("click", () => {
+      // Toggle hamburger animation
+      hamburger?.classList.toggle("hamburger-open");
+      
+      // Toggle menu with animation
+      if (mobileMenu?.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+        // Trigger a reflow
+        void mobileMenu.offsetWidth;
+        mobileMenu.classList.add("menu-open");
+      } else {
+        mobileMenu?.classList.remove("menu-open");
+        // Wait for animation to complete before hiding
+        setTimeout(() => {
+          mobileMenu?.classList.add("hidden");
+        }, 300);
+      }
+    });
   });
 </script>
-
-
-<!-- Navbar
-<nav class="flex justify-between items-center px-10 py-4">
-    <h1 class="text-2xl font-semibold"><span class="text-white">Port</span><span class="text-purple-500">OS</span></h1>
-    <ul class="flex space-x-6 text-gray-300">
-        <li class="text-purple-500 font-semibold cursor-pointer">Homepage</li>
-        <li class="cursor-pointer hover:text-purple-400">Price</li>
-        <li class="cursor-pointer hover:text-purple-400">Blog</li>
-        <li class="cursor-pointer hover:text-purple-400">Help</li>
-        <li class="cursor-pointer hover:text-purple-400">About Us</li>
-    </ul>
-    <div class="space-x-4">
-        <button class="border border-white px-4 py-1 rounded-md">Sign In</button>
-        <button class="border border-white px-4 py-1 rounded-md">Sign Up</button>
-    </div>
-</nav> -->
