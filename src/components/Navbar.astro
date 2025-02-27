@@ -8,9 +8,8 @@ interface Props {
 const { currentPath } = Astro.props;
 
 const navItems = [
-  { name: "Homepage", path: "/" },
-  { name: "Price", path: "/price" },
-  { name: "Blog", path: "/blog" },
+  { name: "Home", path: "/" },
+  { name: "Services", path: currentPath === "/" ? "#services" : "/#services" },
   { name: "Help", path: "/help" },
   { name: "About Us", path: "/about" },
 ];
@@ -38,6 +37,7 @@ const navItems = [
                   ? "text-purple-400 font-bold"
                   : "text-gray-300 hover:text-purple-400"
               }`}
+              onclick={item.path.startsWith("#") ? `document.querySelector('${item.path}').scrollIntoView({ behavior: 'smooth' }); event.preventDefault();` : ""}
             >
               {item.name}
             </a>
@@ -84,6 +84,7 @@ const navItems = [
                 ? "text-purple-400 bg-gray-700 font-medium"
                 : "text-gray-300 hover:text-purple-400 hover:bg-gray-700"
             } transition-transform duration-300 transform hover:translate-x-2`}
+            onclick={item.path.startsWith("#") ? `document.querySelector('${item.path}').scrollIntoView({ behavior: 'smooth' }); event.preventDefault();` : ""}
           >
             {item.name}
           </a>
