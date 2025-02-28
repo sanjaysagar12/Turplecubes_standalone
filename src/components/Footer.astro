@@ -27,14 +27,6 @@ const footerData = {
             ]
         },
         {
-            title: "Browse",
-            items: [
-                { name: "Chrome", url: "#" },
-                { name: "Brave", url: "#" },
-                { name: "Firefox", url: "#" }
-            ]
-        },
-        {
             title: "Company",
             items: [
                 { name: "Contact", url: "#" },
@@ -57,22 +49,27 @@ const footerData = {
 };
 ---
 
-<footer class="mt-2 border-t-1 border-gray-500 text-gray-300 py-8 px-6">
-    <div class="max-w-6xl mx-auto grid sm:grid-cols-3 md:grid-cols-6 gap-6 sm:gap-3">
+<footer class="pt-4">
+    <hr class="pb-4 border-gray-600" />
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-6 gap-8">
         <!-- Company Info -->
-        <div>
+        <div class="col-span-2 md:col-span-2">
             <h2 class="text-white text-2xl font-bold" set:html={footerData.company.name}></h2>
-            <p class="mt-2 text-sm">{footerData.company.description}</p>
-            <p class="mt-4 text-sm">&copy; TurpleCubes Inc. {currentYear}</p>
+            <p class="mt-2 text-sm text-gray-300">{footerData.company.description}</p>
+            <p class="mt-4 text-sm text-white">&copy; TurpleCubes Inc. {currentYear}</p>
         </div>
         
         <!-- Dynamic Link Sections -->
         {footerData.links.map(section => (
-            <div>
-                <h3 class="text-white font-semibold">{section.title}</h3>
-                <ul class="mt-2 space-y-1">
+            <div class="pl-4 md:pl-8">
+                <h5 class="text-white text-xl font-semibold footer-heading">{section.title}</h5>
+                <ul class="mt-2 flex flex-col">
                     {section.items.map(item => (
-                        <li><a href={item.url} class="hover:text-white">{item.name}</a></li>
+                        <li class="mb-2">
+                            <a href={item.url} class="p-0 text-white hover:text-gray-300">
+                                {item.name}
+                            </a>
+                        </li>
                     ))}
                 </ul>
             </div>

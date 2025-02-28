@@ -5,32 +5,38 @@ import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout>
-
     <Navbar currentPath="/about" />
     <section class="text-center mt-20 p-8">
         <h1 class="text-4xl font-bold">Hey <span class="text-blue-500">Friend!</span> This is About us</h1>
-        <p class="mt-4 max-w-2xl mx-auto text-gray-300">
+        <p class="mt-4 max-w-4xl text-lg mx-auto text-gray-300">
             Welcome To TurpleCubes, where our dream and vision merge to become your partner in innovation.
             Our mission is to furnish a versatile workspace catering to every need imaginable.
             From coding to collaboratTurpleCubes is your conduit for unleashing creativity and streamlining productivity.
             Now, what's stopping you from making it?
         </p>
     </section>
-    <section class="px-8 py-6" >
-   <div  class="bg-blue-600 text-black py-16 px-8">
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-3">
-            <h2 class="text-7xl text-center items-center justify-center font-bold border-r-2 border-black ">Our Story</h2>
-            <p class="text-xl">
-                WelcomTurpleCubes, where our dream and vision merge to become your partner in innovation.
-                Our mission is to furnish a versatile workspace catering to every need imaginable.
-                From coding to collaboratTurpleCubes is your conduit for unleashing creativity and streamlining productivity.
-            </p>
-        </div>
+
+    <section class="container mx-auto py-5">
+        <div class="flex items-center min-h-[80px]">
+            <div class="w-full bg-blue-600 py-15 flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/3 relative">
+                    <h1 class="text-dark font-bold text-center text-6xl md:text-7xl pb-4">
+                        Our Story
+                    </h1>
+                </div>
+                <div class="border-l-2 border-black w-full md:w-2/3 px-4 md:px-6">
+                    <p class="text-dark text-center md:text-left text-xl md:text-xl">
+                        Welcome to TurpleCubes, where our dream and vision merge to become your partner in innovation. 
+                        Our mission is to furnish a versatile workspace catering to every need imaginable. 
+                        From coding to collaboration, TurpleCubes is your conduit for unleashing creativity and streamlining productivity.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class=" text-white py-16 text-center">
-        <h2 class="text-3xl font-semibold">Meet our <span class="text-blue-500">Team</span></h2>
+        <h2 class="text-4xl font-semibold">Meet our <span class="text-blue-500">Team</span></h2>
         <div class="grid md:grid-cols-3 gap-8 px-8 mt-8">
             <div class="text-center">
                 <img src="image.jpeg" alt="Sanjay Sagar" class="rounded-lg shadow-lg w-full h-72 object-cover">

@@ -5,91 +5,109 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <Navbar currentPath="/help" />
-    
-    <!-- Hero Section -->
-    <div class="container mx-auto text-center mt-16 px-4 md:mt-24">
-        <h2 class="text-3xl md:text-4xl font-bold">We're at your <span class="text-blue-400">Service</span></h2>
-        <p class="text-gray-400 mt-2 max-w-2xl mx-auto">Guiding you through every challenge, ensuring your success. Our support, your strength, together we thrive.</p>
+  <Navbar currentPath="/help" />
+
+  <!-- Hero Section -->
+  <div class="container mx-auto text-center mt-16 px-4 md:mt-24">
+    <h2 class="text-3xl md:text-4xl font-bold">
+      We're at your <span class="text-blue-400">Service</span>
+    </h2>
+    <p class="text-gray-400 mt-2 max-w-2xl mx-auto">
+      Guiding you through every challenge, ensuring your success. Our support,
+      your strength, together we thrive.
+    </p>
+  </div>
+
+  <!-- Query Form AND Info Cards placed in the same container -->
+  <div class="container max-w-4xl mx-auto px-4 mt-12">
+    <!-- Query Form -->
+    <div class="w-full relative mb-4">
+      <textarea
+        id="feedback-textarea"
+        placeholder="Let us know your feedbacks, queries..."
+        class="w-full p-4 bg-gray-900 border border-gray-700 rounded-lg text-gray-200 min-h-64"
+      ></textarea>
+      <button
+        id="send-button"
+        class="absolute bottom-5 right-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+      >
+        Send
+      </button>
     </div>
-    
-    <!-- Query Form AND Info Cards placed in the same container -->
-    <div class="container max-w-4xl mx-auto px-4 mt-12">
-        <!-- Query Form -->
-        <div class="w-full relative mb-12">
-            <textarea 
-                id="feedback-textarea"
-                placeholder="Let us know your feedbacks, queries..." 
-                class="w-full p-4 bg-gray-900 border border-gray-700 rounded-lg text-gray-200 min-h-64"
-            ></textarea>
-            <button 
-                id="send-button"
-                class="absolute bottom-5 right-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-            >
-                Send
-            </button>
+
+    <!-- Info Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      <!-- Documentation Card -->
+      <a href="https://github.com/turplespace/TurpleCubes-api">
+        <div
+          class="bg-gray-900 p-6 rounded-lg border border-gray-700 flex items-start hover:border-blue-500 transition-colors"
+        >
+          <div class="ml-4">
+            <h3 class="text-xl font-semibold">📄 Documentation</h3>
+            <p class="text-gray-400 mt-2">
+              Explore our comprehensive documentation to gain deeper insights
+              into our platform and the array of services we offer.
+            </p>
+          </div>
         </div>
-        
-        <!-- Info Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            <!-- Documentation Card -->
-            <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 flex items-start hover:border-blue-500 transition-colors">
-                <span class="text-2xl">📄</span>
-                <div class="ml-4">
-                    <h3 class="text-xl font-semibold">Documentation</h3>
-                    <p class="text-gray-400 mt-2">Explore our comprehensive documentation to gain deeper insights into our platform and the array of services we offer.</p>
-                </div>
-            </div>
-            
-            <!-- Community Card -->
-            <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 flex items-start hover:border-blue-500 transition-colors">
-                <span class="text-2xl">👥</span>
-                <div class="ml-4">
-                    <h3 class="text-xl font-semibold">Community</h3>
-                    <p class="text-gray-400 mt-2">Join discussions, share insights, and connect with like-minded professionals to foster meaningful connections.</p>
-                </div>
-            </div>
+      </a>
+      <!-- Community Card -->
+      <div
+        class="bg-gray-900 p-6 rounded-lg border border-gray-700 flex items-start hover:border-blue-500 transition-colors"
+      >
+        <div class="ml-4">
+          <h3 class="text-xl font-semibold">👥 Community</h3>
+          <p class="text-gray-400 mt-2">
+            Join discussions, share insights, and connect with like-minded
+            professionals to foster meaningful connections.
+          </p>
         </div>
+      </div>
     </div>
-    
+  </div>
 </Layout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const sendButton = document.getElementById('send-button');
-    const feedbackTextarea = document.getElementById('feedback-textarea') as HTMLTextAreaElement;
-    if(sendButton)
-    sendButton.addEventListener('click', async () => {
-      const message = feedbackTextarea.value;
-      const name = "Cubes Support Page"
-      const email = "node"
-      const number = "node"
-      if (message.trim() === '') {
-        alert('Please enter a message.');
-        return;
-      }
-
-      try {
-        const response = await fetch('https://hlomail-api-2.onrender.com/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ message, name,email,number })
-        });
-
-        if (response.ok) {
-          alert('Message sent successfully!');
-          if (feedbackTextarea) {
-            feedbackTextarea.value = '';
-          }
-        } else {
-          alert('Failed to send message. Please try again later.');
+  document.addEventListener("DOMContentLoaded", () => {
+    const sendButton = document.getElementById("send-button");
+    const feedbackTextarea = document.getElementById(
+      "feedback-textarea",
+    ) as HTMLTextAreaElement;
+    if (sendButton)
+      sendButton.addEventListener("click", async () => {
+        const message = feedbackTextarea.value;
+        const name = "Cubes Support Page";
+        const email = "node";
+        const number = "node";
+        if (message.trim() === "") {
+          alert("Please enter a message.");
+          return;
         }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again later.');
-      }
-    });
+
+        try {
+          const response = await fetch(
+            "https://hlomail-api-2.onrender.com/api/contact",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ message, name, email, number }),
+            },
+          );
+
+          if (response.ok) {
+            alert("Message sent successfully!");
+            if (feedbackTextarea) {
+              feedbackTextarea.value = "";
+            }
+          } else {
+            alert("Failed to send message. Please try again later.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again later.");
+        }
+      });
   });
 </script>
