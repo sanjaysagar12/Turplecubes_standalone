@@ -1,5 +1,29 @@
 ---
 // FAQ.astro
+
+// FAQ data array
+const faqItems = [
+  {
+    question: "What is Web3Flow?",
+    answer: "Web3Flow is a comprehensive platform that provides seamless access to Web3 technologies, decentralized applications, and blockchain networks. We simplify the complexities of blockchain technology, making it accessible for everyone from beginners to experienced developers."
+  },
+  {
+    question: "How do I get started with Web3Flow?",
+    answer: "Getting started is simple. Create an account by clicking the \"Sign Up\" button, complete your profile, and you'll have immediate access to our suite of Web3 tools and solutions. Our guided onboarding process will help you navigate the platform based on your specific needs."
+  },
+  {
+    question: "What blockchain networks does Web3Flow support?",
+    answer: "Web3Flow supports all major blockchain networks including Ethereum, Polygon, Solana, Binance Smart Chain, and many others. Our multi-chain approach ensures you have the flexibility to work across different ecosystems without switching platforms."
+  },
+  {
+    question: "Is Web3Flow secure?",
+    answer: "Absolutely. Security is our top priority. Web3Flow implements industry-leading security protocols, including end-to-end encryption, multi-factor authentication, and regular security audits. We never store your private keys, ensuring your digital assets remain fully under your control at all times."
+  },
+  {
+    question: "Are there fees for using Web3Flow?",
+    answer: "Web3Flow offers several pricing tiers to accommodate different needs. Our basic plan is free and provides essential access to Web3 functionalities. Premium plans offer advanced features, higher transaction limits, and priority support. Standard network transaction fees still apply regardless of your plan."
+  }
+];
 ---
 
 <section class="py-20 relative">
@@ -10,102 +34,23 @@
       </div>
   
       <div class="max-w-3xl mx-auto">
-        <!-- FAQ Item 1 -->
-        <div class="mb-4">
-          <button class="faq-toggle w-full text-left p-5 bg-gray-800 bg-opacity-50 rounded-lg hover:bg-opacity-70 transition-all duration-200">
-            <div class="flex justify-between items-center">
-              <h3 class="text-xl font-semibold text-white">What is Web3Flow?</h3>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-            <div class="p-5 bg-gray-800 bg-opacity-30 rounded-b-lg text-gray-300">
-              Web3Flow is a comprehensive platform that provides seamless access to Web3 technologies, 
-              decentralized applications, and blockchain networks. We simplify the complexities of 
-              blockchain technology, making it accessible for everyone from beginners to experienced developers.
-            </div>
-          </div>
-        </div>
-  
-        <!-- FAQ Item 2 -->
-        <div class="mb-4">
-          <button class="faq-toggle w-full text-left p-5 bg-gray-800 bg-opacity-50 rounded-lg hover:bg-opacity-70 transition-all duration-200">
-            <div class="flex justify-between items-center">
-              <h3 class="text-xl font-semibold text-white">How do I get started with Web3Flow?</h3>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-            <div class="p-5 bg-gray-800 bg-opacity-30 rounded-b-lg text-gray-300">
-              Getting started is simple. Create an account by clicking the "Sign Up" button, complete 
-              your profile, and you'll have immediate access to our suite of Web3 tools and solutions. 
-              Our guided onboarding process will help you navigate the platform based on your specific needs.
+        {faqItems.map((item, index) => (
+          <div class="mb-4">
+            <button class="faq-toggle w-full text-left p-5 bg-gray-800 bg-opacity-50 rounded-lg hover:bg-opacity-70 transition-all duration-200">
+              <div class="flex justify-between items-center">
+                <h3 class="text-xl font-semibold text-white">{item.question}</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+              <div class="p-5 bg-gray-800 bg-opacity-30 rounded-b-lg text-gray-300">
+                {item.answer}
+              </div>
             </div>
           </div>
-        </div>
-  
-        <!-- FAQ Item 3 -->
-        <div class="mb-4">
-          <button class="faq-toggle w-full text-left p-5 bg-gray-800 bg-opacity-50 rounded-lg hover:bg-opacity-70 transition-all duration-200">
-            <div class="flex justify-between items-center">
-              <h3 class="text-xl font-semibold text-white">What blockchain networks does Web3Flow support?</h3>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-            <div class="p-5 bg-gray-800 bg-opacity-30 rounded-b-lg text-gray-300">
-              Web3Flow supports all major blockchain networks including Ethereum, Polygon, Solana, 
-              Binance Smart Chain, and many others. Our multi-chain approach ensures you have the 
-              flexibility to work across different ecosystems without switching platforms.
-            </div>
-          </div>
-        </div>
-  
-        <!-- FAQ Item 4 -->
-        <div class="mb-4">
-          <button class="faq-toggle w-full text-left p-5 bg-gray-800 bg-opacity-50 rounded-lg hover:bg-opacity-70 transition-all duration-200">
-            <div class="flex justify-between items-center">
-              <h3 class="text-xl font-semibold text-white">Is Web3Flow secure?</h3>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-            <div class="p-5 bg-gray-800 bg-opacity-30 rounded-b-lg text-gray-300">
-              Absolutely. Security is our top priority. Web3Flow implements industry-leading security 
-              protocols, including end-to-end encryption, multi-factor authentication, and regular 
-              security audits. We never store your private keys, ensuring your digital assets remain 
-              fully under your control at all times.
-            </div>
-          </div>
-        </div>
-  
-        <!-- FAQ Item 5 -->
-        <div class="mb-4">
-          <button class="faq-toggle w-full text-left p-5 bg-gray-800 bg-opacity-50 rounded-lg hover:bg-opacity-70 transition-all duration-200">
-            <div class="flex justify-between items-center">
-              <h3 class="text-xl font-semibold text-white">Are there fees for using Web3Flow?</h3>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-            <div class="p-5 bg-gray-800 bg-opacity-30 rounded-b-lg text-gray-300">
-              Web3Flow offers several pricing tiers to accommodate different needs. Our basic plan is 
-              free and provides essential access to Web3 functionalities. Premium plans offer advanced 
-              features, higher transaction limits, and priority support. Standard network transaction 
-              fees still apply regardless of your plan.
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
   
       <!-- CTA -->
@@ -122,7 +67,7 @@
   
     <!-- Decorative element -->
     <div class="absolute right-0 bottom-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -z-10"></div>
-  </section>
+</section>
   
 <script>
     // JavaScript for FAQ toggle functionality

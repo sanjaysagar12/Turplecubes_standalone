@@ -1,0 +1,89 @@
+---
+// Array of service features
+const features = [
+  {
+    title: "Ready-to-Use Prebuilt Environments",
+    description: "No more wasting hours on setup. Pick from pre-configured Stacks (workspaces) with all the tools and dependencies you need. Just choose your environment and start coding instantly.",
+    image: "image.jpeg"
+  },
+  {
+    title: "Prebuilt & Customizable Containers",
+    description: "Run your code in isolated, ready-to-go environments. Our Cubes (containers) come with everything pre-installed for languages like Python, Golang, and Node.js. Need custom setups? Configure once and reuse anytime.",
+    image: "image.jpeg"
+  },
+  {
+    title: "Extend Functionality with Gears",
+    description: "Your environment, your way. Add extra tools, debugging utilities, or database connectors with Gears (plugins). Personalize your workspace without the manual hassle.",
+    image: "image.jpeg"
+  },
+  {
+    title: "Save & Reuse Your Workspaces",
+    description: "Set up once, use forever. Save your preferred environments with all installed tools, so you never have to start from scratch again.",
+    image: "image.jpeg"
+  },
+  {
+    title: "Cross-Platform Compatibility",
+    description: "Develop anywhere, on any device. Whether you're on Windows, macOS, or Linux, work in a seamless, cloud-powered, Linux-based environment—without compatibility issues.",
+    image: "image.jpeg"
+  },
+  {
+    title: "Instant Coding, No Local Installations",
+    description: "Skip installations, get straight to work. Forget downloading dependencies or fixing local conflicts—just select a Cube and start coding immediately.",
+    image: "image.jpeg"
+  }
+];
+---
+<!-- Services -->
+<div class="container mx-auto px-4 max-w-6xl">
+    {features.map((feature, index) => {
+        // For even indexes (0, 2, 4...), use the image-first layout
+        if (index % 2 === 0) {
+            return (
+                <section 
+                    id={index === 0 ? "services" : ""}
+                    class="flex flex-col md:flex-row items-center justify-between gap-x-24 gap-y-4 py-16"
+                >
+                    <div class="w-full md:w-1/2">
+                        <img
+                            src={feature.image}
+                            alt="Workspace Image"
+                            class="w-full rounded-lg shadow-lg"
+                        />
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-right">
+                        <h2 class="text-4xl font-bold">
+                            {feature.title}
+                        </h2>
+                        <p class="mt-4 text-xl text-gray-400">
+                            {feature.description}
+                        </p>
+                    </div>
+                </section>
+            );
+        } 
+        // For odd indexes (1, 3, 5...), use the text-first layout
+        else {
+            return (
+                <section
+                    class="flex flex-col-reverse md:flex-row items-center justify-between gap-x-24 gap-y-4 py-16"
+                >
+                    <div class="w-full md:w-1/2 text-center md:text-right">
+                        <h2 class="text-4xl font-bold">
+                            {feature.title}
+                        </h2>
+                        <p class="mt-4 text-xl text-gray-400">
+                            {feature.description}
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <img
+                            src={feature.image}
+                            alt="Workspace Image"
+                            class="w-full rounded-lg shadow-lg"
+                        />
+                    </div>
+                </section>
+            );
+        }
+    })}
+</div>

@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar.astro";
 import HeroSection from "../components/HeroSection.astro";
 import FAQ from "../components/FAQ.astro";
 import Layout from "../layouts/Layout.astro";
+import Services from "../components/Services.astro";
+
 ---
 
 <Layout>
@@ -25,94 +27,7 @@ import Layout from "../layouts/Layout.astro";
             </p>
         </section>
 
-        <!-- Feature Section -->
-        <section
-            id="services"
-            class="flex flex-col md:flex-row items-center justify-center gap-12 px-6 md:px-12 py-16"
-        >
-            <img
-                src="image.jpeg"
-                alt="Workspace Image"
-                class="w-full md:w-3/5 rounded-lg shadow-lg"
-            />
-            <div class="w-full md:w-3/2 text-center">
-                <h2 class="text-3xl font-bold">
-                    Effortless Workspace Creation and Deployment
-                </h2>
-                <p class="mt-4 text-xl text-gray-400">
-                    Start your projects effortlessly with PortOS' one-click
-                    workspace creation and deployment feature. No more complex
-                    installations or compatibility issues – just click a button
-                    to begin.
-                </p>
-            </div>
-        </section>
-
-        <!-- Feature Section (Text First, Image Below on Mobile) -->
-        <section
-            class="flex flex-col-reverse md:flex-row items-center justify-center gap-12 px-6 md:px-12 py-16"
-        >
-            <div class="w-full md:w-3/2 text-center">
-                <h2 class="text-3xl font-bold">
-                    Access to Fully Functional Operating Systems
-                </h2>
-                <p class="mt-4 text-xl text-gray-400">
-                    Access multiple operating systems like Ubuntu, Kali Linux,
-                    Fedora, Red Hat, Alpine, and Arch directly through your
-                    browser. No installations or configurations needed.
-                </p>
-            </div>
-            <img
-                src="image.jpeg"
-                alt="Workspace Image"
-                class="w-full md:w-3/5 rounded-lg shadow-lg"
-            />
-        </section>
-
-        <!-- Feature Section -->
-        <section
-            class="flex flex-col md:flex-row items-center justify-center gap-12 px-6 md:px-12 py-16"
-        >
-            <img
-                src="image.jpeg"
-                alt="Workspace Image"
-                class="w-full md:w-3/5 rounded-lg shadow-lg"
-            />
-            <div class="w-full md:w-3/2 text-center">
-                <h2 class="text-3xl font-bold">
-                    Secure Browsing with PortOS Browser
-                </h2>
-                <p class="mt-4 text-xl text-gray-400">
-                    Browse the web with confidence using the PortOS Browser. Our
-                    isolated container environment ensures a secure browsing
-                    experience, protecting your system from viruses and
-                    safeguarding your privacy.
-                </p>
-            </div>
-        </section>
-
-        <!-- Feature Section (Text First, Image Below on Mobile) -->
-        <section
-            class="flex flex-col-reverse md:flex-row items-center justify-center gap-12 px-6 md:px-12 py-16"
-        >
-            <div class="w-full md:w-3/2 text-center">
-                <h2 class="text-3xl font-bold">Utilize DNS Services</h2>
-                <p class="mt-4 text-xl text-gray-400">
-                    Connect your domain to isolated containers and take
-                    advantage of our DNS services for improved performance and
-                    management.
-                </p>
-            </div>
-            <img
-                src="image.jpeg"
-                alt="Workspace Image"
-                class="w-full md:w-3/5 rounded-lg shadow-lg"
-            />
-        </section>
-
-     
-     
-
+        <Services/>
         <FAQ />
     </main>
 </Layout>
